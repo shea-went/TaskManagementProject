@@ -1,0 +1,158 @@
+/* General Styles */
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Search Bar Styles */
+#search-bar-container {
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+}
+
+/* Calendar Bar Styles */
+.calendar-bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.calendar-bar:hover {
+    background-color: #f0f0f0;
+}
+
+.calendar-bar.active {
+    background-color: #d0f0d0;
+    border-color: #4caf50;
+}
+
+/* Task Item Styles */
+.task-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-item:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.task-details {
+    display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Search Popup Styles */
+.search-popup {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.search-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-popup li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-popup li:hover {
+    background: #f0f0f0;
+}
+
+.search-popup .close-btn {
+    text-align: right;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Task List Styles */
+#task-list-container {
+    padding: 10px;
+}
+
+#task-list {
+    height: 70%;
+    overflow-y: auto; /* Enable vertical scroll */
+    scrollbar-width: none;
+    padding: 0;
+}
+
+#task-list li {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+#go-to-task-details {
+    position: relative;
+    right: 0px;    
+    transform: translateY(-50%);
+}
+
+#task-list li p {
+    margin: 0;
+    font-size: 16px;
+}
+#new-landscaping {
+    background-color :darkgreen;
+}
+#site-clearing {
+    background-color :darkblue;
+}
+#paint-maintenance {
+    background-color :darkorchid;
+}
+#grass-maintenance {
+    background-color :darkorange;
+}
+#general-maintenance {
+    background-color :darksalmon;
+}
+#default {
+    background-color :darkgray;
+}
+#canvas {
+    display: block !important;
+}
+
+.dragging {
+    opacity: 0.5;
+    background-color: #e0e0e0;
+}

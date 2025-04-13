@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Management Section Styles */
+#management {
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#add-task {
+    display: flex;
+    align-items: center;;
+    color: white;
+    left : 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+#Task-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#Task-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+#task-description {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+#due-date, #priority-level, #completion-date, #start-date, #status {
+    font-size: 16px;
+    color: #555;
+    width: 100%;
+}
+
+#task-document {
+    border-radius: 8px;
+    object-fit: cover;
+    margin-top: 10px;
+    width: 100%;
+}
+/* Video Player Styles */
+#video-player {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Styles */
+#navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#navigation img {
+    width: 50px;
+    height: 50px;
+}
