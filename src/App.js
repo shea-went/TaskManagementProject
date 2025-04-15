@@ -5,12 +5,14 @@ import TaskDetails from "./components/Task Details";
 import HighPriority from "./components/High Priority";
 import CompletedTasks from "./components/Completed Tasks";
 import TaskStatistics from "./components/TaskStatistics";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 
 function App() {
   return ( 
     <Router>
       <Routes>
+        {/* <Route path="/" element={<ErrorBoundary><Tasks /></ErrorBoundary>} /> */}
         <Route path="/" element={<Tasks />} />
         <Route path="/task-details" element={<TaskDetails />} />
         <Route path="/high-priority" element={<HighPriority />} />

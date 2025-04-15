@@ -112,8 +112,8 @@ const Tasks = () => {
     const searchTasks = () => {
         const results = tasks.filter((task) => {
             const matchesSearch =
-                task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                task.description.toLowerCase().includes(searchQuery.toLowerCase());
+                (task.title?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+                (task.description?.toLowerCase() || "").includes(searchQuery.toLowerCase());
             return matchesSearch;
         });
 
@@ -129,7 +129,7 @@ const Tasks = () => {
 
         const today = new Date().toISOString().split("T")[0]; // Define 'today' here
 
-        for (let i = 0; i < 7; i++) {
+        for (let i = -7; i < 7; i++) {
             const currentDay = new Date(date);
             currentDay.setDate(date.getDate() + i);
             const currentDayString = currentDay.toISOString().split("T")[0]; // Define 'currentDayString' here
@@ -233,15 +233,15 @@ const Tasks = () => {
             }
         };
 
-        if (calendarContainer) {
-            calendarContainer.addEventListener("wheel", handleScroll);
-        }
+        // if (calendarContainer) {
+        //     calendarContainer.addEventListener("wheel", handleScroll);
+        // }
 
-        return () => {
-            if (calendarContainer) {
-                calendarContainer.removeEventListener("wheel", handleScroll);
-            }
-        };
+        // return () => {
+        //     if (calendarContainer) {
+        //         calendarContainer.removeEventListener("wheel", handleScroll);
+        //     }
+        // };
     }, []);
 
     // Update filters

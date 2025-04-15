@@ -25,6 +25,11 @@ body {
     font-size: 16px;
 }
 
+
+#calendar-container{
+    max-height: 400px;
+    overflow-y: auto;
+}
 /* Calendar Bar Styles */
 .calendar-bar {
     padding: 10px;
