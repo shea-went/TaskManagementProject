@@ -54,11 +54,20 @@ body {
 
 /* Task Item Styles */
 .task-item {
+    cursor : move;
     margin: 10px 0;
     padding: 10px;
     background-color: #fff;
+    border : 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-item.dragging {
+    opacity: 0.6;
+    background-color: #e0e0e0;
+    border: 2px dashed #ccc;
+    cursor: grabbing;
 }
 
 .task-item:hover {
@@ -157,7 +166,3 @@ body {
     display: block !important;
 }
 
-.dragging {
-    opacity: 0.5;
-    background-color: #e0e0e0;
-}

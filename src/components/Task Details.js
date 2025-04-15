@@ -111,7 +111,7 @@ const TaskDetails = () => {
         </div>
         <div id="add-task">
           <button id="add-task-button" onClick={addNewTask}>
-            ⊞
+            ⊞-Add new task
           </button>
         </div>
         <div>

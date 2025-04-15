@@ -55,6 +55,7 @@ const Tasks = () => {
                 className="task-item"
                 draggable="true"
                 onDragStart={(e) => handleDragStart(e, task)}
+                onDragEnd={handleDragEnd}
                 onClick={() => toggleTaskDetails(task)}
             >
                 <p>{task.title}</p>
@@ -65,12 +66,21 @@ const Tasks = () => {
 
     // Handle drag-and-drop
     const handleDragStart = (e, task) => {
-        e.dataTransfer.setData("task", JSON.stringify(task));
+        e.dataTransfer.setData("task", JSON.stringify(task)); // Store task data
+        e.currentTarget.classList.add("dragging"); // Add visual feedback
+    };
+
+    const handleDragEnd = (e) => {
+        e.currentTarget.classList.remove("dragging"); // Remove visual feedback
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault(); // Allow dropping
     };
 
     const handleDrop = (e) => {
         e.preventDefault();
-        const droppedTask = JSON.parse(e.dataTransfer.getData("task"));
+        const droppedTask = JSON.parse(e.dataTransfer.getData("task")); // Get dragged task
         const targetTaskTitle = e.target.closest(".task-item")?.querySelector("p")?.textContent;
 
         if (!targetTaskTitle) {
@@ -78,7 +88,7 @@ const Tasks = () => {
             return;
         }
 
-        // Find the index of the dropped task and the target task
+        // Find the indices of the dragged and target tasks
         const droppedTaskIndex = tasks.findIndex((task) => task.title === droppedTask.title);
         const targetTaskIndex = tasks.findIndex((task) => task.title === targetTaskTitle);
 
@@ -95,10 +105,6 @@ const Tasks = () => {
         // Update state and localStorage
         setTasks(updatedTasks);
         localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-    };
-
-    const handleDragOver = (e) => {
-        e.preventDefault();
     };
 
     // Show task details
