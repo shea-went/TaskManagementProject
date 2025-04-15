@@ -186,7 +186,11 @@ const Tasks = () => {
     };
 
     // Handle gestures for navigation
-    const handleGesture  = useCallback(() => {
+    const handleGesture  = useCallback((e) => {
+        // ignore gesture if the event target is in filters 
+        const isFilterElement = e.target.closest("#filters")
+        if(isFilterElement) return;
+
         if (touchEndX.current < touchStartX.current - 50 || mouseEndX.current < mouseStartX.current - 50) {
             // Swipe left or mouse left
             navigate("/completed-tasks");
@@ -202,14 +206,14 @@ const Tasks = () => {
         };
         const handleTouchEnd = (e) => {
             touchEndX.current = e.changedTouches[0].clientX;
-            handleGesture();
+            handleGesture(e);
         };
         const handleMouseDown = (e) => {
             mouseStartX.current = e.clientX;
         };
         const handleMouseUp = (e) => {
             mouseEndX.current = e.clientX;
-            handleGesture();
+            handleGesture(e);
         };
 
         window.addEventListener("touchstart", handleTouchStart);
