@@ -70,6 +70,11 @@ const TaskDetails = () => {
 
   const getLocation = useCallback(async () => {
     const apiKey = process.env.REACT_APP_GOOGLE_API_KEY; // Securely access the API key
+    if (!apiKey) {
+      console.error("API key is missing. Please check your .env file.");
+      updateTaskDetails("location", "API key is missing");
+      return;
+    }
     const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`;
 
     const requestBody = { considerIp: true };
@@ -82,7 +87,7 @@ const TaskDetails = () => {
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
 
       const data = await response.json();
@@ -223,9 +228,10 @@ const TaskDetails = () => {
           />
         </div>
         <audio id="audio-player" controls>
-          <source src={currentTask.audio} type="audio/mp3" />
+          <source src="task-audio.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
+
         <video id="video-player" controls>
           <source src="task-video.mp4" type="video/mp4" />
           Your browser does not support the video element.
